@@ -1,0 +1,137 @@
+[
+    {
+        "id": 1,
+        "id_usuario": 1,
+        "fecha": "2026-04-01",
+        "total": 870000,
+        "direccion": "Av. Belgrano 123, Córdoba",
+        "entregado": true,
+        "productos": [
+            {
+                "id_producto": 1,
+                "cantidad": 1,
+                "precio_unitario": 520000
+            },
+            {
+                "id_producto": 11,
+                "cantidad": 1,
+                "precio_unitario": 320000
+            },
+            {
+                "id_producto": 21,
+                "cantidad": 1,
+                "precio_unitario": 18000
+            },
+            {
+                "id_producto": 30,
+                "cantidad": 1,
+                "precio_unitario": 8000
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "id_usuario": 2,
+        "fecha": "2026-04-02",
+        "total": 950000,
+        "direccion": "Calle San Martín 456, Córdoba",
+        "entregado": false,
+        "productos": [
+            {
+                "id_producto": 3,
+                "cantidad": 1,
+                "precio_unitario": 950000
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "id_usuario": 3,
+        "fecha": "2026-04-04",
+        "total": 305000,
+        "direccion": "Ruta 5 Km 10, Alta Gracia",
+        "entregado": true,
+        "productos": [
+            {
+                "id_producto": 14,
+                "cantidad": 1,
+                "precio_unitario": 260000
+            },
+            {
+                "id_producto": 23,
+                "cantidad": 1,
+                "precio_unitario": 20000
+            },
+            {
+                "id_producto": 27,
+                "cantidad": 1,
+                "precio_unitario": 15000
+            },
+            {
+                "id_producto": 30,
+                "cantidad": 1,
+                "precio_unitario": 8000
+            },
+            {
+                "id_producto": 21,
+                "cantidad": 1,
+                "precio_unitario": 18000
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "id_usuario": 1,
+        "fecha": "2026-04-06",
+        "total": 1335000,
+        "direccion": "Av. Belgrano 123, Córdoba",
+        "entregado": true,
+        "productos": [
+            {
+                "id_producto": 16,
+                "cantidad": 1,
+                "precio_unitario": 1300000
+            },
+            {
+                "id_producto": 29,
+                "cantidad": 1,
+                "precio_unitario": 25000
+            },
+            {
+                "id_producto": 30,
+                "cantidad": 1,
+                "precio_unitario": 8000
+            },
+            {
+                "id_producto": 21,
+                "cantidad": 1,
+                "precio_unitario": 18000
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "id_usuario": 4,
+        "fecha": "2026-04-08",
+        "total": 697000,
+        "direccion": "Calle Independencia 789, Córdoba",
+        "entregado": false,
+        "productos": [
+            {
+                "id_producto": 6,
+                "cantidad": 1,
+                "precio_unitario": 720000
+            },
+            {
+                "id_producto": 24,
+                "cantidad": 1,
+                "precio_unitario": 35000
+            },
+            {
+                "id_producto": 22,
+                "cantidad": 1,
+                "precio_unitario": 45000
+            }
+        ]
+    }
+]
