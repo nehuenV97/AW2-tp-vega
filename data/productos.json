@@ -79,8 +79,6 @@
         "precio": 880000,
         "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_722737-MLA93860167252_102025-F.webp"
     },
-
-
     {
         "id": 11,
         "categoria": "celulares",
@@ -118,7 +116,7 @@
         "categoria": "celulares",
         "nombre": "Motorola Moto G52",
         "descripcion": "128GB, 6GB RAM, display OLED",
-        "precio": 210000,
+        "precio": 240000,
         "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_698891-MLA50817265580_072022-F.webp"
     },
     {
@@ -161,8 +159,6 @@
         "precio": 150000,
         "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_914689-MLA78809915118_092024-F.webp"
     },
-
-
     {
         "id": 21,
         "categoria": "accesorios",

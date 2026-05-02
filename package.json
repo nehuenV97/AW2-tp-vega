@@ -1,0 +1,25 @@
+{
+  "name": "tp_integrador",
+  "version": "1.0.0",
+  "description": "Trabajo practico integrador / AW2",
+  "homepage": "https://github.com/nehuenV97/AW2-tp-vega#readme",
+  "bugs": {
+    "url": "https://github.com/nehuenV97/AW2-tp-vega/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nehuenV97/AW2-tp-vega.git"
+  },
+  "license": "ISC",
+  "author": "Nehuen Vega",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
