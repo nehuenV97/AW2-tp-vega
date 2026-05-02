@@ -7,21 +7,21 @@ Trabajo práctico integrador de la materia Aplicaciones Web 2
 ## SOLICITUDES HTTP
 
 ### /users
-- **GET:** /users - Traer todos los usuarios
-- **POST:** /users - Crear un nuevo usuario
-- **PUT:** /users/:id - Modificar un usuario por su id
-- **DELETE:** /users/:id - Eliminar un usuario por su id
+- **GET:** localhost:3000/users/all - Traer todos los usuarios
+- **POST:** localhost:3000/users - Crear un nuevo usuario
+- **PUT:** localhost:3000/users/:id - Modificar un usuario por su id
+- **DELETE:** localhost:3000/users/:id - Eliminar un usuario por su id
 
 ### /productos
-- **GET:** /productos - Traer todos los productos
-- **POST:** /productos - Crear un nuevo producto
-- **PUT:** /productos/:id - Modificar un producto por su id
-- **DELETE:** /productos/:id - Eliminar un producto por su id
+- **GET:** localhost:3000/productos/all - Traer todos los productos
+- **POST:** localhost:3000/productos - Crear un nuevo producto
+- **PUT:** localhost:3000/productos/:id - Modificar un producto por su id
+- **DELETE:** localhost:3000/productos/:id - Eliminar un producto por su id
 
 ### /ventas
-- **GET:** /ventas - Traer todas las ventas
-- **POST:** /ventas - Crear una nueva venta
-- **PUT:** /ventas/:id - Modificar una venta por su id
-- **DELETE:** /ventas/:id - Eliminar una venta por su id
+- **GET:** localhost:3000/ventas/all - Traer todas las ventas
+- **POST:** localhost:3000/ventas - Crear una nueva venta
+- **PUT:** localhost:3000/ventas/:id - Modificar una venta por su id
+- **DELETE:** localhost:3000/ventas/:id - Eliminar una venta por su id
 
 
