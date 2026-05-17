@@ -1,0 +1,246 @@
+[
+    {
+        "id": 1,
+        "categoria": "notebooks",
+        "nombre": "Notebook Lenovo IdeaPad 3",
+        "descripcion": "Intel i5, 8GB RAM, 256GB SSD",
+        "precio": 520000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_714224-MLA93644084976_102025-F.webp"
+    },
+    {
+        "id": 2,
+        "categoria": "notebooks",
+        "nombre": "Notebook HP 245 G8",
+        "descripcion": "Ryzen 5, 8GB RAM, 512GB SSD",
+        "precio": 610000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_890290-MLA93982857477_102025-F.webp"
+    },
+    {
+        "id": 3,
+        "categoria": "notebooks",
+        "nombre": "MacBook Air M1",
+        "descripcion": "Apple M1, 8GB RAM, 256GB SSD",
+        "precio": 950000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_727157-CBT90315487367_082025-F.webp"
+    },
+    {
+        "id": 4,
+        "categoria": "notebooks",
+        "nombre": "Notebook Dell Inspiron 3501",
+        "descripcion": "Intel i7, 16GB RAM, 512GB SSD",
+        "precio": 830000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_941944-MLA95597686673_102025-F.webp"
+    },
+    {
+        "id": 5,
+        "categoria": "notebooks",
+        "nombre": "Acer Aspire 5",
+        "descripcion": "Intel i5 10ma gen, 8GB RAM",
+        "precio": 540000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_662625-MLA82198279392_022025-F.webp"
+    },
+    {
+        "id": 6,
+        "categoria": "notebooks",
+        "nombre": "Notebook Asus VivoBook 15",
+        "descripcion": "Ryzen 7, 12GB RAM, 512GB SSD",
+        "precio": 720000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_979650-MLA95646122166_102025-F.webp"
+    },
+    {
+        "id": 7,
+        "categoria": "notebooks",
+        "nombre": "Notebook Samsung Galaxy Book",
+        "descripcion": "Intel i5, 8GB RAM",
+        "precio": 640000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_764151-MLA95697770300_102025-F.webp"
+    },
+    {
+        "id": 8,
+        "categoria": "notebooks",
+        "nombre": "Notebook LG Gram 14",
+        "descripcion": "Ultraliviana, 16GB RAM",
+        "precio": 1100000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_930462-MLA96889122005_102025-F.webp"
+    },
+    {
+        "id": 9,
+        "categoria": "notebooks",
+        "nombre": "Notebook Huawei MateBook D15",
+        "descripcion": "Ryzen 5, 8GB RAM",
+        "precio": 590000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_990299-MLA87137686968_072025-F.webp"
+    },
+    {
+        "id": 10,
+        "categoria": "notebooks",
+        "nombre": "Notebook MSI Modern 14",
+        "descripcion": "Core i7, 16GB RAM, diseño premium",
+        "precio": 880000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_722737-MLA93860167252_102025-F.webp"
+    },
+
+
+    {
+        "id": 11,
+        "categoria": "celulares",
+        "nombre": "Samsung Galaxy A54",
+        "descripcion": "128GB, 8GB RAM, cámara triple",
+        "precio": 320000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_900528-MLA95392115898_102025-F.webp"
+    },
+    {
+        "id": 12,
+        "categoria": "celulares",
+        "nombre": "iPhone 13",
+        "descripcion": "128GB, cámara dual, iOS",
+        "precio": 890000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_797796-MLA96123654705_102025-F.webp"
+    },
+    {
+        "id": 13,
+        "categoria": "celulares",
+        "nombre": "Google Pixel 7",
+        "descripcion": "128GB, cámara avanzada",
+        "precio": 780000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_764171-MLA96670025561_102025-F.webp"
+    },
+    {
+        "id": 14,
+        "categoria": "celulares",
+        "nombre": "Xiaomi Redmi Note 12",
+        "descripcion": "256GB, 8GB RAM",
+        "precio": 260000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_729576-MLA74807970331_022024-F.webp"
+    },
+    {
+        "id": 15,
+        "categoria": "celulares",
+        "nombre": "Motorola Moto G52",
+        "descripcion": "128GB, 6GB RAM, display OLED",
+        "precio": 210000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_698891-MLA50817265580_072022-F.webp"
+    },
+    {
+        "id": 16,
+        "categoria": "celulares",
+        "nombre": "iPhone 15",
+        "descripcion": "128GB, chip A16, nuevo diseño",
+        "precio": 1300000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_784557-MLA95493924244_102025-F.webp"
+    },
+    {
+        "id": 17,
+        "categoria": "celulares",
+        "nombre": "Samsung Galaxy S22",
+        "descripcion": "256GB, cámara profesional",
+        "precio": 950000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_970724-MLA50478747640_062022-F.webp"
+    },
+    {
+        "id": 18,
+        "categoria": "celulares",
+        "nombre": "Xiaomi 13 Pro",
+        "descripcion": "256GB, cámara Leica",
+        "precio": 720000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_972719-MLA97327923142_112025-F.webp"
+    },
+    {
+        "id": 19,
+        "categoria": "celulares",
+        "nombre": "Huawei P40 Pro",
+        "descripcion": "Cámara cuádruple, 256GB",
+        "precio": 650000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_915292-CBT88933582047_072025-F.webp"
+    },
+    {
+        "id": 20,
+        "categoria": "celulares",
+        "nombre": "Nokia G21",
+        "descripcion": "128GB, batería 5050mAh",
+        "precio": 150000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_914689-MLA78809915118_092024-F.webp"
+    },
+
+
+    {
+        "id": 21,
+        "categoria": "accesorios",
+        "nombre": "Mouse Logitech G203",
+        "descripcion": "RGB, 8000 DPI",
+        "precio": 18000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_866361-MLA94580386956_102025-F.webp"
+    },
+    {
+        "id": 22,
+        "categoria": "accesorios",
+        "nombre": "Auriculares HyperX Cloud",
+        "descripcion": "Sonido 7.1, micrófono desmontable",
+        "precio": 45000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_748657-MLA96079710641_102025-F.webp"
+    },
+    {
+        "id": 23,
+        "categoria": "accesorios",
+        "nombre": "Power Bank Anker 10000mAh",
+        "descripcion": "Carga rápida, diseño compacto",
+        "precio": 20000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_739624-MLA95973682041_102025-F.webp"
+    },
+    {
+        "id": 24,
+        "categoria": "accesorios",
+        "nombre": "Teclado Mecánico Redragon Kumara",
+        "descripcion": "Switches Blue, RGB",
+        "precio": 35000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_762618-MLA95703186248_102025-F.webp"
+    },
+    {
+        "id": 25,
+        "categoria": "accesorios",
+        "nombre": "Parlante JBL Flip 5",
+        "descripcion": "Bluetooth, resistente al agua",
+        "precio": 60000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_970675-MLA93858378630_102025-F.webp"
+    },
+    {
+        "id": 26,
+        "categoria": "accesorios",
+        "nombre": "Webcam Logitech C920",
+        "descripcion": "Full HD 1080p",
+        "precio": 52000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_672777-MLA95659327188_102025-F.webp"
+    },
+    {
+        "id": 27,
+        "categoria": "accesorios",
+        "nombre": "Soporte para notebook ajustable",
+        "descripcion": "Aluminio, antideslizante",
+        "precio": 15000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_754141-MLA95668078374_102025-F.webp"
+    },
+    {
+        "id": 28,
+        "categoria": "accesorios",
+        "nombre": "Micrófono USB Fifine K669",
+        "descripcion": "Streaming y podcast",
+        "precio": 30000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_848121-MLA94584889327_102025-F.webp"
+    },
+    {
+        "id": 29,
+        "categoria": "accesorios",
+        "nombre": "Cargador GaN 65W Baseus",
+        "descripcion": "USB-C doble salida rápida",
+        "precio": 25000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_919248-MLA95831500269_102025-F.webp"
+    },
+    {
+        "id": 30,
+        "categoria": "accesorios",
+        "nombre": "Mousepad Redragon Flick L",
+        "descripcion": "Tela speed, 45x40cm",
+        "precio": 8000,
+        "imagen": "https://http2.mlstatic.com/D_NQ_NP_2X_651586-MLA95668078946_102025-F.webp"
+    }
+]

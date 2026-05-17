@@ -12,9 +12,11 @@ app.listen(port, () => {
     console.log(`Servidor levantado en el puerto ${port}`);    
 })
 
-app.get('/', (req, res) => {
-    res.send('¡Hola mundo!');
-})
+// app.get('/', (req, res) => {
+//     res.send('¡Hola mundo!');
+// })
+
+app.use(express.static('./public'));
 
 app.use('/productos', productoRouter);
 app.use('/users', userRouter);
