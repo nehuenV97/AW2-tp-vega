@@ -53,6 +53,31 @@ router.post('/', (req, res) => {
   }
 })
 
+//login
+router.post('/login', (req, res) => {
+  try {
+    const email = req.body.email;
+    const password = req.body.password;
+  
+    const result = userData.find(e => e.email === email && e.password === password);
+  
+    if (result) {
+      const data = {
+        nombre: result.nombre,
+        apellido: result.apellido,
+        email: result.email,
+        password: result.password,
+        status: true
+      }
+      res.status(200).json(data);
+    } else {
+      res.status(400).json({ status: false });
+    }
+  } catch (error) {
+    res.status(500).json({ error: 'Error al loguear el usuario.' });
+  }
+})
+
 // Actualizar un cliente por su ID
 router.put('/:id', (req, res) => {
   try {

@@ -1,6 +1,8 @@
+import { auth } from '../../auth/auth.js';
+
 const loginForm = document.getElementById("loginForm");
 
-loginForm.addEventListener("submit", (e) => {
+loginForm.addEventListener("submit", async(e) => {
     e.preventDefault();
 
     const email = document.getElementById("email").value.trim();
@@ -14,9 +16,10 @@ loginForm.addEventListener("submit", (e) => {
         return;
     }
 
-    const usuarios = JSON.parse(sessionStorage.getItem("usuarios")) || [];
+    // const usuarios = JSON.parse(sessionStorage.getItem("usuarios")) || [];
+    // const usuario = usuarios.find(u => u.email === email && u.password === password);
 
-    const usuario = usuarios.find(u => u.email === email && u.password === password);
+    const usuario = await auth({email, password});
 
     if (usuario) {
         sessionStorage.setItem("usuario", JSON.stringify(usuario));
