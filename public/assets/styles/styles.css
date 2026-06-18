@@ -353,6 +353,23 @@ footer {
   background-color: rgb(1, 117, 212);  
 }
 
+/*Mis Compras*/
+.compras-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+
+.compra {
+  background-color: #2ea1ff7e;
+  padding: 5px;
+  border-radius: 5%;
+}
+
 /* RESPONSIVE */
 .container-menu{
   display: none;
@@ -413,3 +430,4 @@ footer {
     height: auto;
   }
 }
+

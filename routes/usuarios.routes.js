@@ -1,5 +1,8 @@
 import { Router } from 'express';
 import { readFile, writeFile } from 'fs/promises';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import 'dotenv/config';
 
 const router = Router();
 
@@ -19,34 +22,43 @@ router.get('/all', (req, res) => {
 })
 
 // Crear un nuevo usuario 
-router.post('/', (req, res) => {
-  try {
-    const newUser = req.body;
+router.post('/registro', (req, res) => {
+  try {    
+    const {nombre, apellido, email, password} = req.body;
     // Validación 
-    if (!newUser.nombre) {
+    if (!nombre) {
       return res.status(400).json({ error: "Falta el campo 'nombre'" });
     }
-    if (!newUser.apellido) {
+    if (!apellido) {
       return res.status(400).json({ error: "Falta el campo 'apellido'" }); 
     }
-    if (!newUser.email) {
+    if (!email) {
       return res.status(400).json({ error: "Falta el campo 'email'" });
     }
-    if (!newUser.password) {
+    if (!password) {
       return res.status(400).json({ error: "Falta el campo 'password'" }); 
+    }    
+
+    const usuario = userData.find(u => u.email === email);
+
+    if (usuario) {
+      return res.status(400).json({ error: "¡Ya existe ese usuario!'" });
     }
 
-    // Asignamos un nuevo ID secuencial
-    newUser.id = userData.length > 0 ? userData.at(-1).id + 1 : 1; 
-    const nuevo = {
-        id: newUser.id,
-        ...req.body,
-        activo: true
-    };  
+    const passwordHash = bcrypt.hashSync(password, 10);
 
-    userData.push(nuevo);    
+    const nuevoUsuario = {
+        id: userData.length > 0 ? Math.max(...userData.map(u => u.id)) + 1 : 1,
+        nombre,
+        apellido,
+        email,
+        password: passwordHash,
+        activo: true
+    };
+
+    userData.push(nuevoUsuario);    
     writeFile('./data/usuarios.json', JSON.stringify(userData, null, 4));    
-    res.status(201).json(newUser);
+    res.status(201).json({nuevoUsuario, mensaje: 'Usuario registrado'});
 
   } catch (error) {
     res.status(500).json({ error: 'Error al guardar el usuario.' });
@@ -59,20 +71,31 @@ router.post('/login', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
   
-    const result = userData.find(e => e.email === email && e.password === password);
+    const usuario = userData.find(e => e.email === email);
   
-    if (result) {
-      const data = {
-        nombre: result.nombre,
-        apellido: result.apellido,
-        email: result.email,
-        password: result.password,
-        status: true
-      }
-      res.status(200).json(data);
-    } else {
-      res.status(400).json({ status: false });
+    if(!usuario) {
+      return res.status(404).json({mensaje: 'Usuario no encontrado'});
     }
+
+    const controlPass = bcrypt.compareSync(password, usuario.password);
+    // console.log(controlPass);
+
+    if (!controlPass) {
+        return res.status(401).json({mensaje: 'Contraseña incorrecta'});
+    }
+
+    const token = jwt.sign({id: usuario.id, email: usuario.email}, process.env.JWT_SECRET, {expiresIn: 86400})
+    
+    res.status(200).json({
+      token,
+      usuario: {
+        id: usuario.id,
+        nombre: usuario.nombre,
+        apellido: usuario.apellido,
+        email: usuario.email
+      }
+    });
+
   } catch (error) {
     res.status(500).json({ error: 'Error al loguear el usuario.' });
   }

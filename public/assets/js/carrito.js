@@ -1,3 +1,5 @@
+import { nuevaVenta } from "../../ventas/ventas.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".carrito");
     const btnVaciar = document.getElementById("vaciar-carrito");
@@ -66,20 +68,26 @@ const vaciarCarrito = () => {
             location.reload();
         }
     })    
-}
+} 
 
-const finalizarCompra = () => {
+const finalizarCompra = async () => {
     const usuario = JSON.parse(sessionStorage.getItem("usuario"));
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
     if (!usuario) {
-        alert("Debés iniciar sesión para finalizar la compra.");
+        Swal.fire({
+            icon: "warning",
+            title: "Debe iniciar sesión"
+        });
         window.location.href = "../pages/login.html";
         return;
     }
 
     if (carrito.length === 0) {
-        alert("El carrito está vacío.");
+        Swal.fire({
+            icon: "warning",
+            title: "El carrito está vacío"
+        });
         return;
     }
 
@@ -87,20 +95,70 @@ const finalizarCompra = () => {
         title: "¿Estás seguro?",
         icon: "question",
         text: "Se realizará la compra de los productos del carrito",
-        showCloseButton: true,
         showCancelButton: true,
-        focusConfirm: false,
-        confirmButtonText: `Si`,        
-        cancelButtonText: `No`,        
-    }).then((result) => {
+        confirmButtonText: "Sí",
+        cancelButtonText: "No"
+    }).then(async (result) => {
         if (result.isConfirmed) {
-            Swal.fire({
-                title: "¡Compra realizada con éxito!",
-                icon: "success"
-            }).then(() => {
-                localStorage.removeItem("carrito");
-                location.reload();
-            });            
+            try {
+                const venta = {
+                    direccion: "Retira en sucursal",
+                    productos:
+                        carrito.map(item => ({
+                            id_producto: item.id,
+                            cantidad: item.cantidad
+                        }))
+                };
+
+                await nuevaVenta(venta);
+
+                Swal.fire({
+                    title: "¡Compra realizada con éxito!",
+                    icon: "success",
+                    text: `${usuario.nombre} ${usuario.apellido} realizaste una compra a retirar por sucursal`
+                }).then(() => {
+                    localStorage.removeItem("carrito");
+
+                    location.reload();
+                });
+            } catch (error) {
+                Swal.fire({
+                    icon: "error",
+                    title: error.message
+                });
+            }
         }
-    })    
-}    
+    });
+}
+
+// btnFinalizar.addEventListener('click', async () => {
+//         try {
+//             const carrito = JSON.parse(localStorage.getItem('carrito'));
+
+//             const venta = {
+//                 direccion: document.getElementById('direccion').value,
+//                 productos:
+//                     carrito.map(p => ({
+//                         id_producto: p.id,
+//                         cantidad: p.cantidad
+//                     }))
+//             };
+
+//             const resultado = await createVenta(venta);
+
+//             Swal.fire({
+//                 icon: 'success',
+//                 title: 'Compra realizada'
+//             });
+
+//             localStorage.removeItem('carrito');
+
+//             location.href = '../../index.html';
+//         } catch (error) {
+//             Swal.fire({
+//                 icon: 'error',
+//                 title: error.message
+//             });
+//         }
+//     }
+// );

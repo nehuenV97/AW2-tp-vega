@@ -46,5 +46,45 @@
         "email": "nehuenv@gmail.com",
         "password": "123456",
         "activo": true
+    },
+    {
+        "id": 7,
+        "nombre": "juan",
+        "apellido": "perez",
+        "email": "juanperez@gmail.com",
+        "password": {},
+        "activo": true
+    },
+    {
+        "id": 8,
+        "nombre": "luka",
+        "apellido": "modric",
+        "email": "lukamodric@gmail.com",
+        "password": {},
+        "activo": true
+    },
+    {
+        "id": 9,
+        "nombre": "lio",
+        "apellido": "messi",
+        "email": "liomessi@gmail.com",
+        "password": "$2b$10$udsetpFtn2dNy67NlHI5euRSyPTUd5DWoYLbOgkpCO/ORCmjUxjv2",
+        "activo": true
+    },
+    {
+        "id": 10,
+        "nombre": "Enzo",
+        "apellido": "Fernandez",
+        "email": "enzof@gmail.com",
+        "password": "$2b$10$LxrPkVSYZ3wfNUq52Xccieb4ekLnPKTC2TatuJZ4Usso7Zjo2ksUK",
+        "activo": true
+    },
+    {
+        "id": 11,
+        "nombre": "Maria",
+        "apellido": "Martinez",
+        "email": "marmar@gmail.com",
+        "password": "$2b$10$BKlB6pAq5uSyxjZ.d0eLKeAXzQcdRJ.cMdrYvy9GVNOG.MAvEV3i6",
+        "activo": true
     }
 ]

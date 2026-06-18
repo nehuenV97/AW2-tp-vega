@@ -1,10 +1,11 @@
 import express from 'express';
+import 'dotenv/config';
 import productoRouter from "./routes/productos.routes.js";
 import userRouter from "./routes/usuarios.routes.js";
 import ventaRouter from "./routes/ventas.routes.js";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 app.use(express.json());
 

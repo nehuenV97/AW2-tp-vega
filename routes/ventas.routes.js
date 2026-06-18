@@ -1,10 +1,14 @@
 import { Router } from 'express';
 import { readFile, writeFile } from 'fs/promises';
+import { verifyToken } from '../middleware/auth.middleware.js';
 
 const router = Router();
 
 const fileVentas = await readFile('./data/ventas.json', 'utf-8');
 const ventaData = JSON.parse(fileVentas);
+
+const fileProductos = await readFile('./data/productos.json', 'utf-8');
+const productoData = JSON.parse(fileProductos);
 
 // Trae todos las ventas
 router.get('/all', (req, res) => {
@@ -47,38 +51,92 @@ router.get('/all', (req, res) => {
 // })
 
 // Crear una nueva venta
-router.post('/', (req, res) => {
-  try {
-    const newVenta = req.body;
+// router.post('/', (req, res) => {
+//   try {
+//     const newVenta = req.body;
      
-    if (!newVenta.id_usuario) {
-      return res.status(400).json({ error: "Falta el campo 'id_usuario'" });
-    }
-    if (!newVenta.fecha) {
-      return res.status(400).json({ error: "Falta el campo 'fecha'" }); 
-    }
-    if (!newVenta.direccion) {
-      return res.status(400).json({ error: "Falta el campo 'direccion'" });
-    }
-    if (!newVenta.productos) {
-      return res.status(400).json({ error: "Faltan especificar 'productos'" }); 
+//     if (!newVenta.id_usuario) {
+//       return res.status(400).json({ error: "Falta el campo 'id_usuario'" });
+//     }
+//     if (!newVenta.fecha) {
+//       return res.status(400).json({ error: "Falta el campo 'fecha'" }); 
+//     }
+//     if (!newVenta.direccion) {
+//       return res.status(400).json({ error: "Falta el campo 'direccion'" });
+//     }
+//     if (!newVenta.productos) {
+//       return res.status(400).json({ error: "Faltan especificar 'productos'" }); 
+//     }
+
+//     // TODO: Mejorar el manejo del total de la venta (sumando los productos seleccionados)
+//     newVenta.id = ventaData.length > 0 ? ventaData.at(-1).id + 1 : 1; 
+//     const nuevo = {
+//         id: newVenta.id,
+//         ...req.body,
+//     };  
+
+//     ventaData.push(nuevo);    
+//     writeFile('./data/ventas.json', JSON.stringify(ventaData, null, 4));    
+//     res.status(201).json(newVenta);
+
+//   } catch (error) {
+//     res.status(500).json({ error: 'Error al guardar la venta.' });
+//   }
+// })
+
+router.post('/', verifyToken, (req, res) => {
+  try {
+    const { direccion, productos } = req.body;
+
+    if (!productos || productos.length === 0) {
+        return res.status(400).json({error: 'No hay productos'});
     }
 
-    // TODO: Mejorar el manejo del total de la venta (sumando los productos seleccionados)
-    newVenta.id = ventaData.length > 0 ? ventaData.at(-1).id + 1 : 1; 
-    const nuevo = {
-        id: newVenta.id,
-        ...req.body,
-    };  
+    let total = 0;
+    const detalleProductos = productos.map(item => {
+      const producto = productoData.find(p => p.id === item.id_producto);
 
-    ventaData.push(nuevo);    
-    writeFile('./data/ventas.json', JSON.stringify(ventaData, null, 4));    
-    res.status(201).json(newVenta);
+      if (!producto) {
+        throw new Error(`Producto ${item.id_producto} inexistente`);
+      }
 
+      total += producto.precio * item.cantidad;
+
+      return {
+        id_producto: producto.id,
+        cantidad: item.cantidad,
+        precio_unitario: producto.precio
+      };
+    });
+
+    const nuevaVenta = {
+      id: ventaData.length > 0 ? Math.max(...ventaData.map(v => v.id)) + 1: 1,
+      id_usuario: req.usuario.id,
+      fecha: new Date().toISOString().split('T')[0],
+      total,
+      direccion,
+      entregado: false,
+      productos: detalleProductos
+    };
+
+    ventaData.push(nuevaVenta);
+    writeFile('./data/ventas.json', JSON.stringify(ventaData,null,4));
+    res.status(201).json(nuevaVenta);
   } catch (error) {
-    res.status(500).json({ error: 'Error al guardar la venta.' });
+    res.status(500).json({error: error.message});
   }
-})
+  }
+);
+
+//ventas de un cliente
+router.get('/misCompras', verifyToken, (req, res) => {
+    try {  
+      const misVentas = ventaData.filter( v => v.id_usuario === req.usuario.id);
+      res.status(200).json(misVentas);
+    } catch (error) {
+        res.status(500).json({error: 'Error al obtener compras'});
+    }
+});
 
 // Actualizar un cliente por su ID
 router.put('/:id', (req, res) => {

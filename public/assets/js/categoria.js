@@ -1,6 +1,7 @@
 import { card, eventosCard} from "./card.js";
+import { getProductsByCategory } from "../../productos/productos.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async() => {
 
     const container = document.querySelector(".container");
     if (!container) return;
@@ -9,22 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const filename = window.location.pathname.split("/").pop();
     const categoria = filename.replace(".html", "");
 
-    fetch("../../data/productos.json")
-        .then(resp => resp.json())
-        .then(data => {
+    const prodFiltrados = await getProductsByCategory(categoria);
 
-            const productosFiltrados = data.filter(prod => prod.categoria === categoria);
+    if (prodFiltrados.length === 0) {
+        container.innerHTML = `<p>No hay productos en esta categoría.</p>`;
+        return;
+    }
 
-            if (productosFiltrados.length === 0) {
-                container.innerHTML = `<p>No hay productos en esta categoría.</p>`;
-                return;
-            }
-
-            productosFiltrados.forEach((prod, index) => {
-                container.innerHTML += card(prod, index);
-            });           
+    prodFiltrados.forEach((prod, index) => {
+        container.innerHTML += card(prod, index);
+    });           
             
-            eventosCard(productosFiltrados);
-        })
-        .catch(error => console.log(error));
+    eventosCard(prodFiltrados);    
 });

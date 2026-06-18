@@ -36,8 +36,13 @@ crearNavbar = () => {
     usuario ?
         navButtons.innerHTML += `
             <p class="userName">
-                <i class="bi bi-person-circle icono"></i> ${usuario.apellido}, ${usuario.nombre}
+                <i class="bi bi-person-circle icono"></i> ${usuario.nombre} ${usuario.apellido}
             </p>
+            <a href="../pages/misCompras.html">
+                <button class="nav-btn">
+                    <i class="bi bi-bag-check icono"></i>
+                </button>
+            </a>
             <a href="../pages/carrito.html">
                 <button class="nav-btn">
                     <i class="bi bi-cart icono"></i>

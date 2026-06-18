@@ -8,26 +8,20 @@ loginForm.addEventListener("submit", async(e) => {
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
     
-    if (!email || !password) {
+    if (email !== '' && password !== '') {
+        try {
+            const usuario = await auth(email, password);            
+            window.location.href = "../../index.html";
+        } catch (error) {
+            Swal.fire({
+            title: "¡Usuario no registrado!",
+            icon: "warning"
+            })
+        }
+    } else {
         Swal.fire({
             title: "Por favor complete todos los campos",
             icon: "warning"  
         })
-        return;
-    }
-
-    // const usuarios = JSON.parse(sessionStorage.getItem("usuarios")) || [];
-    // const usuario = usuarios.find(u => u.email === email && u.password === password);
-
-    const usuario = await auth({email, password});
-
-    if (usuario) {
-        sessionStorage.setItem("usuario", JSON.stringify(usuario));
-        window.location.href = "../../index.html";
-    } else {
-        Swal.fire({
-            title: "¡Usuario no registrado!",
-            icon: "warning"  
-        })        
-    }
+    }    
 });

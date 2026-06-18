@@ -1,20 +1,16 @@
 import { card, eventosCard} from "./card.js";
+import { getProducts } from "../../productos/productos.js";
 
 let containerCard = document.querySelector(".container");
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async() => {
     if (!containerCard) return;
 
-    fetch("../../data/productos.json")
-        .then(resp => resp.json())
-        .then(data => {
-             data.forEach(prod => {
-                containerCard.innerHTML += card(prod)                
-            })
-            eventosCard(data);                
-        })
-        .catch(error => {
-            console.log(error);
-        })
+    const productos = await getProducts();
+
+    productos.forEach(prod => {
+        containerCard.innerHTML += card(prod)                
+    })
+    eventosCard(productos);   
 })
 

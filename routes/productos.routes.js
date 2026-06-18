@@ -18,6 +18,18 @@ router.get('/all', (req, res) => {
     }
 })
 
+// Traer productos por categoria
+router.get('/category/:category', (req, res) => {
+  try {
+    const category = req.params.category;
+    const prodFiltrados = productoData.filter( e => e.categoria === category)
+
+    res.status(200).json(prodFiltrados);
+  } catch (error) {
+    res.status(500).json('Error al buscar...')
+  }
+})
+
 // Crear un nuevo producto
 router.post('/', (req, res) => {
   try {
